@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPOS System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Screen (default view) -->
+        <div id="login-screen" class="screen active">
+            <div class="login-container">
+                <h1>EPOS Login</h1>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p id="login-error" class="error-message"></p>
+                </form>
+            </div>
+        </div>
+        <!--Trying to make more secure-->
+        <div class="forgot-password">
+            <a href="#" id="forgot-password-link">Forgot Password?</a>
+        </div>
+
+        <div id="forgot-password-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Password Recovery</h2>
+                <form id="recovery-form">
+                    <div class="form-group">
+                        <label for="recovery-email">Email Address</label>
+                        <input type="email" id="recovery-email" required>
+                    </div>
+                    <button type="submit">Send Recovery Email</button>
+                    <p id="recovery-message" class="info-message"></p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Sales Screen -->
+        <div id="sales-screen" class="screen">
+            <header>
+                <h1>Sales</h1>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </header>
+            <div class="sales-container">
+                <div class="products-grid" id="products-grid">
+                    <!-- Products will be loaded here -->
+                </div>
+                <div class="cart-container">
+                    <h2>Current Sale</h2>
+                    <div class="cart-items" id="cart-items">
+                        <!-- Cart items will appear here -->
+                    </div>
+                    <div class="cart-total">
+                        <p>Total: <span id="cart-total">$0.00</span></p>
+                        <button id="checkout-btn" class="checkout-btn">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Screen -->
+        <div id="admin-screen" class="screen">
+            <header>
+                <h1>Admin Dashboard</h1>
+                <button id="admin-logout-btn" class="logout-btn">Logout</button>
+            </header>
+            <div class="admin-container">
+                <div class="admin-sidebar">
+                    <button class="admin-tab active" data-tab="products">Products</button>
+                    <button class="admin-tab" data-tab="users">Users</button>
+                    <button class="admin-tab" data-tab="reports">Reports</button>
+                    <button class="admin-tab" data-tab="settings">Settings</button>
+                </div>
+                <div class="admin-content">
+                    <div id="products-tab" class="tab-content active">
+                        <h2>Product Management</h2>
+                        <div class="product-list" id="admin-product-list">
+                            <!-- Products will be loaded here -->
+                        </div>
+                        <button id="add-product-btn" class="add-btn">Add Product</button>
+                    </div>
+                    <div id="users-tab" class="tab-content">
+                        <h2>User Management</h2>
+                        <!-- User management content -->
+                    </div>
+                    <div id="reports-tab" class="tab-content">
+                        <h2>Sales Reports</h2>
+                        <!-- Reports content -->
+                    </div>
+                    <div id="settings-tab" class="tab-content">
+                        <h2>System Settings</h2>
+                        <!-- Settings content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/sales.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
